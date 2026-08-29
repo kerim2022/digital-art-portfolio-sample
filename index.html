@@ -1,337 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Abdulkerim Seid Endris — Digital Art, Imaging & 3D Specialist</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdulkerim Seid Endris — Digital Art & 3D Technical Portfolio</title>
+  <style>
+    :root {
+      --bg: #0e1012;
+      --panel: #16181c;
+      --border: #2a2e35;
+      --text: #e1e1d9;
+      --muted: #8a8880;
+      --accent-pink: #d6486e;
+      --accent-teal: #2c8c87;
+      --accent-orange: #f97316;
+      --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+    }
 
-<style>
-  :root{
-    --paper:#E7E7E0;
-    --paper-2:#DBDAD1;
-    --ink:#1D2023;
-    --ink-soft:#5B5E58;
-    --check-a:#D6486E;
-    --check-b:#2C8C87;
-    --line:#B7B5AA;
-    --maxw:1160px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans',sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{font-family:'IBM Plex Sans',sans-serif;font-weight:700;letter-spacing:-0.01em;line-height:1.08;}
-  .mono{font-family:'IBM Plex Mono',monospace;}
-  a{color:inherit;text-decoration:none;}
-  :focus-visible{outline:2px solid var(--check-a);outline-offset:3px;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-mono);
+      line-height: 1.5;
+      padding: 24px;
+    }
 
-  .checker{
-    background-color:var(--check-b);
-    background-image:
-      linear-gradient(45deg, var(--check-a) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--check-a) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--check-a) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--check-a) 75%);
-    background-size:28px 28px;
-    background-position:0 0, 0 14px, 14px -14px, -14px 0px;
-  }
+    header {
+      border-bottom: 2px solid var(--accent-pink);
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-  header.titlebar{
-    position:sticky;top:0;z-index:50;
-    background:rgba(231,231,224,0.9);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .titlebar-inner{
-    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
-  }
-  .titlebar-name{font-family:'IBM Plex Mono';font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;}
-  .titlebar-links{display:flex;gap:26px;font-family:'IBM Plex Mono';font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
-  .titlebar-links a:hover{color:var(--check-a);}
+    h1 { font-size: 1.25rem; letter-spacing: -0.5px; color: #fff; }
+    .status { color: var(--accent-teal); font-size: 0.8rem; font-weight: 600; }
 
-  .hero{max-width:var(--maxw);margin:0 auto;padding:64px 28px 0;}
-  .hero-grid{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start;}
-  .hero-meta{font-family:'IBM Plex Mono';font-size:0.78rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:12px;padding-top:14px;border-top:1px solid var(--line);}
-  .hero-meta .k{color:var(--ink);font-weight:600;display:block;margin-bottom:2px;}
-  .hero-main h1{font-size:clamp(2.1rem,5.2vw,3.6rem);margin-bottom:18px;}
-  .hero-main p{color:var(--ink-soft);max-width:560px;font-size:1.05rem;}
-  .hero-swatch{height:56px;margin-top:52px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+    /* Work Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
 
-  section{padding:88px 28px;max-width:var(--maxw);margin:0 auto;}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:18px;}
-  .section-head h2{font-size:clamp(1.5rem,2.4vw,2rem);}
-  .section-tag{font-family:'IBM Plex Mono';font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;}
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
 
-  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;}
-  .about-text p{color:var(--ink-soft);font-size:1.02rem;max-width:500px;margin-bottom:16px;}
-  .spec-block{margin-bottom:26px;}
-  .spec-block h3{font-family:'IBM Plex Mono';font-size:0.74rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-bottom:12px;font-weight:600;}
-  .chip-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
-  .chip-list li{border:1px solid var(--line);padding:6px 12px;font-family:'IBM Plex Mono';font-size:0.76rem;background:var(--paper-2);}
+    /* Viewport Frame Container */
+    .viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #000;
+    }
 
-  .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px;}
-  .card{border:1px solid var(--line);background:var(--paper-2);transition:transform .25s ease, border-color .25s ease;}
-  .card:hover{transform:translateY(-3px);border-color:var(--ink);}
-  .card-image{aspect-ratio:4/3;position:relative;overflow:hidden;}
-  .card-image img{width:100%;height:100%;object-fit:cover;display:block;}
-  .card-tag-pill{
-    position:absolute;bottom:10px;left:10px;
-    background:var(--ink);color:var(--paper);
-    font-family:'IBM Plex Mono';font-size:0.66rem;letter-spacing:0.04em;
-    padding:5px 9px;
-  }
-  .card-body{padding:18px 20px 22px;border-top:1px solid var(--line);}
-  .card-body .cat{font-family:'IBM Plex Mono';font-size:0.67rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--check-a);display:block;margin-bottom:9px;font-weight:600;}
-  .card-body h3{font-size:1.02rem;margin-bottom:8px;font-weight:600;}
-  .card-body p{color:var(--ink-soft);font-size:0.85rem;font-family:'IBM Plex Mono';line-height:1.55;}
+    .viewport img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9) contrast(1.05);
+      transition: transform 0.4s ease;
+    }
 
-  .process-strip{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);}
-  .stage{padding:20px 16px;border-right:1px solid var(--line);}
-  .stage:last-child{border-right:none;}
-  .stage-frame{aspect-ratio:1;margin-bottom:14px;}
-  .stage-num{font-family:'IBM Plex Mono';color:var(--check-a);font-size:0.82rem;display:block;margin-bottom:8px;font-weight:600;}
-  .stage h4{font-size:0.83rem;margin-bottom:5px;font-weight:600;}
-  .stage p{font-size:0.72rem;color:var(--ink-soft);}
+    .card:hover .viewport img {
+      transform: scale(1.03);
+    }
 
-  footer{border-top:1px solid var(--line);padding:76px 28px 46px;max-width:var(--maxw);margin:0 auto;}
-  .footer-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
-  footer h2{font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:10px;}
-  .contact-links{font-family:'IBM Plex Mono';font-size:0.84rem;color:var(--ink-soft);}
-  .contact-links a{color:var(--ink);text-decoration:underline;}
-  .contact-links a:hover{color:var(--check-a);}
-  .footer-note{font-family:'IBM Plex Mono';font-size:0.7rem;color:var(--ink-soft);opacity:0.7;margin-top:46px;}
+    /* Technical HUD Overlay Layer */
+    .hud-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border: 12px solid transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 8px;
+      background: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
 
-  @media (max-width:760px){
-    .hero-grid{grid-template-columns:1fr;gap:18px;}
-    .about-grid{grid-template-columns:1fr;gap:32px;}
-    .process-strip{grid-template-columns:1fr 1fr;}
-    .stage{border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
-  }
+    /* Corner Alignment Reticles */
+    .reticle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-color: var(--accent-pink);
+      border-style: solid;
+    }
+    .ret-tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+    .ret-tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+    .ret-bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+    .ret-br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
 
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
-  .reveal.in{opacity:1;transform:none;}
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1;transform:none;transition:none;}
-    html{scroll-behavior:auto;}
-  }
-</style>
+    /* HUD Bar Headers */
+    .hud-header {
+      background: rgba(14, 16, 18, 0.85);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      color: var(--accent-teal);
+    }
+
+    .hud-footer {
+      background: rgba(14, 16, 18, 0.85);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .card-info {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* Process Strip */
+    .process-section {
+      border-top: 1px dashed var(--border);
+      padding-top: 32px;
+    }
+
+    .process-section h2 {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: var(--accent-pink);
+    }
+
+    .process-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .process-step {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 8px;
+    }
+
+    .process-step img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .process-step-title {
+      font-size: 0.75rem;
+      color: var(--text);
+    }
+  </style>
 </head>
 <body>
 
-<header class="titlebar">
-  <div class="titlebar-inner">
-    <span class="titlebar-name">Abdulkerim Seid Endris</span>
-    <nav class="titlebar-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-grid">
-    <div class="hero-meta">
-      <div><span class="k">Name</span>Abdulkerim Seid Endris</div>
-      <div><span class="k">Role</span>Digital Imaging Specialist · Illustrator · 3D Artist</div>
-      <div><span class="k">Focus</span>Retouching · Character Design · NPR Shading</div>
-      <div><span class="k">Status</span>Available for Project Engagement</div>
-    </div>
-    <div class="hero-main">
-      <h1>Multi-Style Digital Art, Photo Editing & 3D Pipelines.</h1>
-      <p>From high-end photo retouching and multi-medium character illustration to low-poly, voxel, and material-driven 3D assets — structured for precision, quality control, and model evaluation workflows.</p>
-    </div>
-  </div>
-  <div class="hero-swatch checker"></div>
-</section>
-
-<section id="about">
-  <div class="section-head">
-    <h2>About</h2>
-    <span class="section-tag">01 — Background</span>
-  </div>
-  <div class="about-grid reveal">
-    <div class="about-text">
-      <p>I am a Digital Imaging Specialist, Illustrator, and 3D Artist dedicated to creating precise, visually compelling artwork across both 2D and 3D pipelines. My background combines software execution, visual media editing, and AI data annotation workflows.</p>
-      <p>Whether performing non-destructive frequency separation on raw photography, preserving character identity across diverse stylized mediums (Steampunk, Glitch, Retro, Oil & Watercolor), or modeling low-poly NPR assets in Blender, I prioritize visual consistency and rigorous prompt/metadata documentation.</p>
-    </div>
-    <div class="about-specs">
-      <div class="spec-block">
-        <h3>Core Skills</h3>
-        <ul class="chip-list">
-          <li>Frequency Separation</li>
-          <li>Non-Destructive Retouching</li>
-          <li>Character Identity Preservation</li>
-          <li>Vector & Line Art</li>
-          <li>Low-Poly & Voxel Modeling</li>
-          <li>Clay, Fabric & Paper Shaders</li>
-          <li>Topology & UV Unwrapping</li>
-          <li>Prompt & Metadata Logging</li>
-        </ul>
-      </div>
-      <div class="spec-block">
-        <h3>Tools</h3>
-        <ul class="chip-list">
-          <li>Adobe Photoshop</li>
-          <li>Procreate</li>
-          <li>Adobe Illustrator</li>
-          <li>Clip Studio Paint</li>
-          <li>Blender</li>
-          <li>ZBrush</li>
-          <li>Cinema 4D / 3ds Max</li>
-          <li>After Effects</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="section-head">
-    <h2>Selected Work</h2>
-    <span class="section-tag">02 — Six Core Domains</span>
-  </div>
-  <div class="work-grid">
-
-    <div class="card reveal">
-      <div class="card-image checker">
-        <span class="card-tag-pill">1600×1200 — Photo Retouching</span>
-      </div>
-      <div class="card-body">
-        <span class="cat">Photo Editing Specialist</span>
-        <h3>High-End Retouching & Compositing</h3>
-        <p>Frequency separation, skin texture preservation, color grading, and non-destructive background integration.</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-image checker">
-        <span class="card-tag-pill">1600×1200 — Character Design</span>
-      </div>
-      <div class="card-body">
-        <span class="cat">Illustrator / Cartoonist</span>
-        <h3>Reference-Based Character Variations</h3>
-        <p>Maintaining strict character identity across Steampunk, Glitch Art, Retro, and Cinematic visual themes.</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-image checker">
-        <span class="card-tag-pill">1600×1200 — Material Study</span>
-      </div>
-      <div class="card-body">
-        <span class="cat">Digital Imaging / 3D Asset</span>
-        <h3>Material-Driven Shaders (Clay, Fabric, Paper)</h3>
-        <p>Handcrafted 3D textures, NPR toon shading, and material exploration built in Blender.</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-image checker">
-        <span class="card-tag-pill">1600×1200 — Fine Art Mediums</span>
-      </div>
-      <div class="card-body">
-        <span class="cat">Style Expertise</span>
-        <h3>Oil, Watercolor & Paper Art Mediums</h3>
-        <p>Digital emulation of physical fine art mediums, paper cut-outs, pop art, and ink line work.</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-image checker">
-        <span class="card-tag-pill">1600×1200 — Low-Poly / Voxel</span>
-      </div>
-      <div class="card-body">
-        <span class="cat">3D Asset Optimization</span>
-        <h3>Low-Poly & Voxel Asset Set</h3>
-        <p>Production-ready low-poly environments and voxel assets with clean quad topology and tight poly budgets.</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <div class="card-image checker">
-        <span class="card-tag-pill">1600×1200 — Dataset Workflow</span>
-      </div>
-      <div class="card-body">
-        <span class="cat">Workflow & Metadata Log</span>
-        <h3>Stylized Asset & Prompt Documentation</h3>
-        <p>Fully rendered NPR asset paired with structured prompt schemas, tag logging, and step-by-step breakdown notes.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="process">
-  <div class="section-head">
-    <h2>Process Breakdown</h2>
-    <span class="section-tag">03 — End-To-End Pipeline</span>
-  </div>
-  <div class="process-strip reveal">
-    <div class="stage">
-      <div class="stage-frame checker"></div>
-      <span class="stage-num">01</span>
-      <h4>Reference & Brief</h4>
-      <p>Deconstruct creative briefs, establish visual style guides, and extract key character/asset identities.</p>
-    </div>
-    <div class="stage">
-      <div class="stage-frame checker"></div>
-      <span class="stage-num">02</span>
-      <h4>Blockout & Line Art</h4>
-      <p>Establish proportions, line weights, vector paths, and base 3D low-poly meshes.</p>
-    </div>
-    <div class="stage">
-      <div class="stage-frame checker"></div>
-      <span class="stage-num">03</span>
-      <h4>Topology & Masking</h4>
-      <p>Clean quad retopology, 0-1 UV unwrapping, frequency separation, and precise layer masking.</p>
-    </div>
-    <div class="stage">
-      <div class="stage-frame checker"></div>
-      <span class="stage-num">04</span>
-      <h4>Shading & Texture</h4>
-      <p>Apply clay, fabric, paper procedural shaders, color grading, and NPR light rigs.</p>
-    </div>
-    <div class="stage">
-      <div class="stage-frame checker"></div>
-      <span class="stage-num">05</span>
-      <h4>Render & Metadata</h4>
-      <p>Deliver high-res assets along with structured prompt logs, tags, and creative decision notes.</p>
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="footer-grid">
+  <header>
     <div>
-      <h2>Let's talk.</h2>
-      <p class="contact-links">
-        <a href="https://github.com/kerim2022" target="_blank" rel="noopener">GitHub (kerim2022)</a> · 
-        <span>Digital Art & 3D Imaging Portfolio</span>
-      </p>
+      <h1>ABDULKERIM SEID ENDRIS — TECHNICAL SPEC PORTFOLIO</h1>
+      <p style="color: var(--muted); font-size: 0.8rem;">DCC Asset Inspector & Production Pipeline Deliverables</p>
     </div>
-    <span class="section-tag">04 — Contact</span>
-  </div>
-  <p class="footer-note">© <span id="year"></span> Abdulkerim Seid Endris. Optimized for the Turing Digital Imaging & Art evaluation applications.</p>
-</footer>
+    <div class="status">PIPELINE: ACTIVE_EVALUATION [3D / RETOUCH / NPR]</div>
+  </header>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
-  },{threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
+  <main class="grid">
+    <article class="card">
+      <div class="viewport">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80" alt="Retouching Sample">
+        <div class="hud-overlay">
+          <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
+          <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
+          <div class="hud-header">
+            <span>SPEC_01 :: PHOTO_RETOUCH</span>
+            <span style="color:var(--accent-pink);">16-BIT RAW PASS</span>
+          </div>
+          <div class="hud-footer">FREQ SEPARATION | SKIN GRAIN | DCI-P3</div>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3 class="card-title">01 // High-End Photo Retouching & Composite</h3>
+        <p class="card-meta">Non-destructive frequency separation, raw color grading, zero artifacting.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="viewport">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Stylized Character">
+        <div class="hud-overlay">
+          <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
+          <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
+          <div class="hud-header">
+            <span>SPEC_02 :: CHARACTER_STYLE</span>
+            <span style="color:var(--accent-orange);">IDENTITY MATCH 99%</span>
+          </div>
+          <div class="hud-footer">VECTOR PATHS | GLITCH & RETRO THEMES</div>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3 class="card-title">02 // Reference Character Style Variations</h3>
+        <p class="card-meta">Strict facial consistency preservation across stylized digital mediums.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="viewport">
+        <img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&w=1200&q=80" alt="Clay Shader">
+        <div class="hud-overlay">
+          <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
+          <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
+          <div class="hud-header">
+            <span>SPEC_03 :: MATERIAL_SURFACE</span>
+            <span style="color:var(--accent-teal);">HANDCAFTED CLAY</span>
+          </div>
+          <div class="hud-footer">PROCEDURAL SHADERS | NPR TOON OUTLINE</div>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3 class="card-title">03 // Material Shaders (Clay / Fabric / Paper)</h3>
+        <p class="card-meta">Subsurface scattering, procedural displacement, and custom NPR toon shading.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="viewport">
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80" alt="Traditional Mediums">
+        <div class="hud-overlay">
+          <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
+          <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
+          <div class="hud-header">
+            <span>SPEC_04 :: FINE_ART_MEDIUM</span>
+            <span style="color:var(--accent-pink);">OIL & WATERCOLOR</span>
+          </div>
+          <div class="hud-footer">CANVAS GRAIN | IMPASTO DISPLACEMENT</div>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3 class="card-title">04 // Traditional Fine Art Mediums Emulation</h3>
+        <p class="card-meta">Digital painting emulating physical canvas textures, pop art, and ink line art.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="viewport">
+        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=1200&q=80" alt="Low Poly Model">
+        <div class="hud-overlay">
+          <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
+          <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
+          <div class="hud-header">
+            <span>SPEC_05 :: 3D_LOW_POLY</span>
+            <span style="color:var(--accent-orange);">&lt; 2,500 TRIS</span>
+          </div>
+          <div class="hud-footer">QUAD TOPOLOGY | 0-1 UV PACKING</div>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3 class="card-title">05 // Low-Poly & Voxel Production Set</h3>
+        <p class="card-meta">Production-ready asset set built with clean edge loops and optimized UV maps.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="viewport">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Dataset Workflow">
+        <div class="hud-overlay">
+          <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
+          <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
+          <div class="hud-header">
+            <span>SPEC_06 :: METADATA_SCHEMA</span>
+            <span style="color:var(--accent-teal);">JSON / EXIF LOG</span>
+          </div>
+          <div class="hud-footer">PROMPT LOGGING | AI MODEL EVALUATION</div>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3 class="card-title">06 // Stylized Asset & Prompt Documentation</h3>
+        <p class="card-meta">Structured prompt logs, category tags, and visual style evaluation sheets.</p>
+      </div>
+    </article>
+  </main>
+
+  <section class="process-section">
+    <h2>PIPELINE_STAGES // END-TO-END BREAKDOWN</h2>
+    <div class="process-strip">
+      <div class="process-step">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Blockout">
+        <div class="process-step-title">01 // Blockout</div>
+      </div>
+      <div class="process-step">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80" alt="Topology">
+        <div class="process-step-title">02 // Topology</div>
+      </div>
+      <div class="process-step">
+        <img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&w=500&q=80" alt="UV Layout">
+        <div class="process-step-title">03 // UV Layout</div>
+      </div>
+      <div class="process-step">
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80" alt="Shading">
+        <div class="process-step-title">04 // Shading</div>
+      </div>
+      <div class="process-step">
+        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=500&q=80" alt="Final Render">
+        <div class="process-step-title">05 // Final Render</div>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
