@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Imaging & Visual Art Pipeline Inspector</title>
+  <title>Unified Digital Art & 3D Asset Pipeline Inspector</title>
   <style>
     :root {
-      --vp-bg: #18181b;
-      --vp-panel: #27272a;
-      --vp-border: #3f3f46;
+      --vp-bg: #141417;
+      --vp-panel: #202024;
+      --vp-border: #37373e;
       --vp-accent-orange: #f97316;
       --vp-accent-blue: #0284c7;
       --vp-accent-cyan: #06b6d4;
-      --vp-accent-purple: #8b5cf6;
+      --vp-accent-purple: #a855f7;
       --text-main: #e4e4e7;
-      --text-dim: #a1a1aa;
+      --text-dim: #94a3b8;
       --mono: "SF Mono", "JetBrains Mono", "Fira Code", "Courier New", monospace;
     }
 
@@ -34,16 +34,16 @@
     }
 
     .viewport-shell {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       border: 1px solid var(--vp-border);
-      background: rgba(24, 24, 27, 0.95);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      background: rgba(20, 20, 23, 0.96);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.7);
     }
 
     /* Top DCC Header Bar */
     .dcc-header {
-      background: #111113;
+      background: #0f0f12;
       border-bottom: 1px solid var(--vp-border);
       padding: 10px 16px;
       display: flex;
@@ -52,13 +52,13 @@
       color: var(--text-dim);
     }
 
-    .dcc-title { color: var(--vp-accent-orange); font-weight: bold; letter-spacing: 0.5px; }
-    .status-tag { color: var(--vp-accent-cyan); }
+    .dcc-title { color: var(--vp-accent-orange); font-weight: 700; letter-spacing: 0.5px; }
+    .status-tag { color: var(--vp-accent-cyan); font-weight: 600; }
 
-    /* Viewport Stats Bar */
+    /* Unified HUD Bar */
     .hud-bar {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       padding: 12px 16px;
       background: var(--vp-panel);
       border-bottom: 1px solid var(--vp-border);
@@ -68,24 +68,24 @@
     }
     .hud-bar span { color: var(--text-main); font-weight: 500; }
 
-    /* Main Content Grid */
+    /* Main Grid Layout */
     .inspector-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 16px;
       padding: 16px;
     }
 
     /* Viewport Card Frame */
     .vp-card {
-      background: #121215;
+      background: #101013;
       border: 1px solid var(--vp-border);
       position: relative;
       display: flex;
       flex-direction: column;
     }
 
-    /* Viewport Corner Brackets */
+    /* Corner Brackets */
     .vp-card::before, .vp-card::after {
       content: "";
       position: absolute;
@@ -100,7 +100,7 @@
     .vp-card::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
 
     .vp-card-header {
-      background: #1c1c20;
+      background: #18181c;
       padding: 8px 12px;
       border-bottom: 1px solid var(--vp-border);
       display: flex;
@@ -109,10 +109,10 @@
       font-size: 11px;
     }
 
-    /* Viewport Render Screen */
+    /* Render Screen Display */
     .screen {
-      height: 230px;
-      background-color: #09090b;
+      height: 220px;
+      background-color: #070709;
       position: relative;
       display: flex;
       align-items: center;
@@ -120,14 +120,13 @@
       overflow: hidden;
     }
 
-    /* Procedural UV / Grid Background */
     .uv-bg {
       background-image: 
-        conic-gradient(#27272a 90deg, #18181b 90deg 180deg, #27272a 180deg 270deg, #18181b 270deg);
+        conic-gradient(#222226 90deg, #121215 90deg 180deg, #222226 180deg 270deg, #121215 270deg);
       background-size: 32px 32px;
     }
 
-    /* Viewport Overlay Text */
+    /* Overlays */
     .cam-overlay {
       position: absolute;
       top: 8px;
@@ -152,7 +151,7 @@
     /* Controls Bar */
     .display-modes {
       display: flex;
-      background: #18181b;
+      background: #151518;
       border-top: 1px solid var(--vp-border);
       border-bottom: 1px solid var(--vp-border);
     }
@@ -201,9 +200,9 @@
     .spec-table td { padding: 3px 0; }
     .spec-table td:last-child { text-align: right; color: var(--text-main); }
 
-    /* Footer / Console Log */
+    /* Console Footer */
     .console-footer {
-      background: #09090b;
+      background: #0b0b0d;
       border-top: 1px solid var(--vp-border);
       padding: 10px 16px;
       font-size: 10px;
@@ -218,41 +217,35 @@
 <body>
 
   <div class="viewport-shell">
-    <!-- DCC Header -->
     <div class="dcc-header">
-      <div><span class="dcc-title">CANVAS_INSPECTOR</span> // DIGITAL_ART_&_IMAGING_PIPELINE</div>
-      <div>STATUS: <span class="status-tag">READY_FOR_PRODUCTION</span></div>
+      <div><span class="dcc-title">UNIFIED_CANVAS_INSPECTOR</span> // 2D_3D_DIGITAL_ART_PIPELINE</div>
+      <div>PIPELINE: <span class="status-tag">EVALUATION_&_PRODUCTION_READY</span></div>
     </div>
 
-    <!-- HUD Stats -->
     <div class="hud-bar">
-      <div>ROLE: <span>Digital Artist / Imaging Specialist</span></div>
-      <div>CORE TOOLSET: <span>Photoshop / Illustrator / Blender / Digital Suite</span></div>
-      <div>COLOR PROFILE: <span>sRGB / Display P3 / Rec.709</span></div>
-      <div>DOMAINS: <span>Photo Editing / Illustration / 3D Assets</span></div>
+      <div>ROLES: <span>Digital Artist | Photo Editor | Illustrator | 3D Specialist</span></div>
+      <div>2D TOOLS: <span>Photoshop, Procreate, Illustrator, Clip Studio Paint</span></div>
+      <div>3D PIPELINE: <span>Blender, ZBrush, Cinema 4D, 3ds Max, After Effects</span></div>
+      <div>METADATA: <span>Prompt Specifications, Style Logs & Asset Tags</span></div>
     </div>
 
-    <!-- Inspector Cards Grid -->
     <div class="inspector-grid">
 
-      <!-- Viewport 01: Photo Editing & Digital Imaging -->
       <div class="vp-card">
         <div class="vp-card-header">
-          <span>[VIEWPORT 01] :: PHOTO_EDITING_&_RETOUCHING</span>
-          <span class="axis-x">2D CANVAS</span>
+          <span>[VIEWPORT 01] :: PHOTO_RETOUCH_&_COMPOSITING</span>
+          <span class="axis-x">RAW PIPELINE</span>
         </div>
         <div class="screen uv-bg" id="screen-1">
-          <div class="cam-overlay">Layer Inspector<br>Mode: Non-Destructive Edit</div>
+          <div class="cam-overlay">Photoshop / Procreate / Lightroom<br>Mode: Non-Destructive Compositing</div>
           <div class="gizmo-overlay"><span class="axis-x">W</span> : <span class="axis-y">H</span></div>
           
           <svg id="svg-1" width="130" height="130" viewBox="0 0 100 100">
-            <!-- Composite View -->
             <g class="layer-shaded">
               <rect x="20" y="20" width="60" height="60" rx="4" fill="#0284c7" opacity="0.8"/>
               <circle cx="50" cy="50" r="22" fill="#06b6d4"/>
               <path d="M 20 65 L 40 45 L 60 60 L 70 50 L 80 65 Z" fill="#38bdf8" opacity="0.6"/>
             </g>
-            <!-- Mask / Layer View -->
             <g class="layer-wire" style="display:none;">
               <rect x="20" y="20" width="60" height="60" rx="4" stroke="var(--vp-accent-cyan)" stroke-width="1.5" fill="none"/>
               <circle cx="50" cy="50" r="22" stroke="#fff" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
@@ -263,36 +256,33 @@
         <div class="display-modes">
           <button class="mode-btn active" onclick="setMode('1', 'shaded', this)">COMPOSITE</button>
           <button class="mode-btn" onclick="setMode('1', 'wire', this)">LAYER MASK</button>
-          <button class="mode-btn" onclick="setMode('1', 'uv', this)">COLOR CHANNELS</button>
+          <button class="mode-btn" onclick="setMode('1', 'uv', this)">FREQ SEPARATION</button>
         </div>
         <div class="vp-card-body">
-          <div class="asset-title">Photo Editing & Digital Compositing</div>
+          <div class="asset-title">Photo Retouching & Fine Art Mediums</div>
           <table class="spec-table">
-            <tr><td>WORKFLOW</td><td>High-Res Retouching, Frequency Separation</td></tr>
-            <tr><td>COLOR PROCESSING</td><td>Curves, RAW Grading, Matte Cleanup</td></tr>
-            <tr><td>DELIVERABLES</td><td>Commercial Retouching, Masking, Composites</td></tr>
+            <tr><td>RETOUCHING</td><td>Frequency separation, skin texture, RAW grading</td></tr>
+            <tr><td>ART MEDIUMS</td><td>Oil & Watercolor, Paper Art, Pop Art, Mixed Media</td></tr>
+            <tr><td>QUALITY CONTROL</td><td>Non-destructive masking, zero artifacting</td></tr>
           </table>
         </div>
       </div>
 
-      <!-- Viewport 02: Illustration & Cartooning -->
       <div class="vp-card">
         <div class="vp-card-header">
-          <span>[VIEWPORT 02] :: ILLUSTRATION_&_CARTOONING</span>
-          <span class="axis-y">VECTOR / RASTER</span>
+          <span>[VIEWPORT 02] :: CHARACTER_&_STYLOGRAPHIC_ART</span>
+          <span class="axis-y">REF VARIATIONS</span>
         </div>
         <div class="screen" id="screen-2" style="background:#0f172a;">
-          <div class="cam-overlay">Canvas View<br>Type: Stylized Line Art</div>
+          <div class="cam-overlay">Procreate / Clip Studio Paint / Illustrator<br>Focus: Reference-Based Character Identity</div>
           <div class="gizmo-overlay"><span class="axis-x">X</span> <span class="axis-y">Y</span></div>
           
           <svg id="svg-2" width="130" height="130" viewBox="0 0 100 100">
-            <!-- Colored Illustration View -->
             <g class="layer-shaded">
               <polygon points="50,15 85,40 70,85 30,85 15,40" fill="var(--vp-accent-orange)"/>
               <path d="M 50 15 Q 70 50 50 85" stroke="#1e293b" stroke-width="3" fill="none"/>
               <circle cx="50" cy="45" r="12" fill="#fef08a"/>
             </g>
-            <!-- Line Art Wire View -->
             <g class="layer-wire" style="display:none;">
               <polygon points="50,15 85,40 70,85 30,85 15,40" stroke="var(--vp-accent-cyan)" stroke-width="1.5" fill="none"/>
               <path d="M 50 15 Q 70 50 50 85" stroke="var(--vp-accent-cyan)" stroke-width="1" fill="none"/>
@@ -301,37 +291,34 @@
           </svg>
         </div>
         <div class="display-modes">
-          <button class="mode-btn active" onclick="setMode('2', 'shaded', this)">FULL COLOR</button>
-          <button class="mode-btn" onclick="setMode('2', 'wire', this)">LINE ART</button>
-          <button class="mode-btn" onclick="setMode('2', 'uv', this)">VECTOR PATHS</button>
+          <button class="mode-btn active" onclick="setMode('2', 'shaded', this)">CHARACTER DESIGN</button>
+          <button class="mode-btn" onclick="setMode('2', 'wire', this)">LINE ART / SKETCH</button>
+          <button class="mode-btn" onclick="setMode('2', 'uv', this)">THEMATIC MATRIX</button>
         </div>
         <div class="vp-card-body">
-          <div class="asset-title">Illustration, Sketching & Character Design</div>
+          <div class="asset-title">Character Illustration & Visual Themes</div>
           <table class="spec-table">
-            <tr><td>ART STYLES</td><td>Vector Graphics, Line Art, Cartooning</td></tr>
-            <tr><td>TECHNIQUES</td><td>Clean Bezier Paths, Line Weight Control</td></tr>
-            <tr><td>ASSETS</td><td>Character Design, Storyboards, Concept Art</td></tr>
+            <tr><td>THEMATIC STYLES</td><td>Steampunk, Glitch Art, Retro, Surreal, Cinematic</td></tr>
+            <tr><td>VECTOR / SKETCH</td><td>Clean Bezier paths, proportion & perspective fidelity</td></tr>
+            <tr><td>CONSISTENCY</td><td>Strict character identity preservation across briefs</td></tr>
           </table>
         </div>
       </div>
 
-      <!-- Viewport 03: 3D Asset Pipeline & Surface Materials -->
       <div class="vp-card">
         <div class="vp-card-header">
-          <span>[VIEWPORT 03] :: 3D_ASSET_PIPELINE</span>
-          <span class="axis-z">SURFACE & SHADING</span>
+          <span>[VIEWPORT 03] :: 3D_ASSETS_&_MATERIAL_PIPELINE</span>
+          <span class="axis-z">TOPOLOGY & NPR</span>
         </div>
         <div class="screen uv-bg" id="screen-3">
-          <div class="cam-overlay">3D Viewport<br>Shading: Procedural Materials</div>
+          <div class="cam-overlay">Blender / ZBrush / Cinema 4D<br>Mode: NPR Shading & Handcrafted Materials</div>
           <div class="gizmo-overlay"><span class="axis-x">X</span> <span class="axis-y">Y</span> <span class="axis-z">Z</span></div>
 
           <svg id="svg-3" width="130" height="130" viewBox="0 0 100 100">
-            <!-- 3D Shaded View -->
             <g class="layer-shaded">
               <circle cx="50" cy="50" r="36" fill="url(#clayGrad)"/>
               <path d="M 25 35 Q 50 15 75 35 Q 50 55 25 35 Z" fill="#ffffff" opacity="0.15"/>
             </g>
-            <!-- 3D Wire View -->
             <g class="layer-wire" style="display:none;">
               <circle cx="50" cy="50" r="36" stroke="var(--vp-accent-cyan)" stroke-width="1" fill="none"/>
               <ellipse cx="50" cy="50" rx="36" ry="12" stroke="var(--vp-accent-cyan)" stroke-width="0.8" fill="none"/>
@@ -349,24 +336,23 @@
         <div class="display-modes">
           <button class="mode-btn active" onclick="setMode('3', 'shaded', this)">SURFACE SHADED</button>
           <button class="mode-btn" onclick="setMode('3', 'wire', this)">QUAD MESH</button>
-          <button class="mode-btn" onclick="setMode('3', 'uv', this)">UV MAP</button>
+          <button class="mode-btn" onclick="setMode('3', 'uv', this)">UV & METADATA</button>
         </div>
         <div class="vp-card-body">
-          <div class="asset-title">3D Asset Modeling & Material Design</div>
+          <div class="asset-title">3D Stylized Assets & Texture Surfaces</div>
           <table class="spec-table">
-            <tr><td>SURFACES</td><td>Clay, Fabric, Paper & Stylized NPR Shading</td></tr>
-            <tr><td>GEOMETRY</td><td>Quad-Dominant Topology, Low-Poly & Voxel</td></tr>
-            <tr><td>PIPELINE</td><td>UV Unwrapping, Normal Baking, Workflow Docs</td></tr>
+            <tr><td>3D STYLES</td><td>Low-poly, Voxel, Claymation, NPR shaders</td></tr>
+            <tr><td>TEXTURE SURFACES</td><td>Clay, Fabric, Paper, Textiles, Handcrafted</td></tr>
+            <tr><td>PIPELINE SPECS</td><td>Quad topology, UV unwrapping, prompt metadata logs</td></tr>
           </table>
         </div>
       </div>
 
     </div>
 
-    <!-- Console / Status Footer -->
     <div class="console-footer">
-      <div>PIPELINE LOG: All 2D & 3D asset inspectors operating normally.</div>
-      <div>CANVAS RESOLUTION: Multi-Format Ready (Print / Web / Real-Time)</div>
+      <div>PIPELINE LOG: Integrated 2D/3D visual art & photo editing inspector operating smoothly.</div>
+      <div>DELIVERABLE SPECS: PSD, TIFF, PNG, SVG, OBJ, FBX, JSON Prompt Logs</div>
     </div>
   </div>
 
