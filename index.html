@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdulkerim Seid Endris — Digital Art & 3D Technical Portfolio</title>
+  <title>Abdulkerim Seid Endris — Technical Art & 3D Spec Portfolio</title>
   <style>
     :root {
-      --bg: #0e1012;
-      --panel: #16181c;
-      --border: #2a2e35;
-      --text: #e1e1d9;
-      --muted: #8a8880;
+      --bg: #0d0f11;
+      --panel: #15181c;
+      --border: #282c34;
+      --text: #e1e4ea;
+      --muted: #8b929e;
       --accent-pink: #d6486e;
       --accent-teal: #2c8c87;
       --accent-orange: #f97316;
-      --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+      --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', Consolas, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,13 +37,13 @@
       gap: 12px;
     }
 
-    h1 { font-size: 1.25rem; letter-spacing: -0.5px; color: #fff; }
+    h1 { font-size: 1.25rem; letter-spacing: -0.5px; color: #fff; text-transform: uppercase; }
     .status { color: var(--accent-teal); font-size: 0.8rem; font-weight: 600; }
 
     /* Work Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 24px;
       margin-bottom: 48px;
     }
@@ -53,6 +53,8 @@
       border: 1px solid var(--border);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Viewport Frame Container */
@@ -61,7 +63,7 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       overflow: hidden;
-      background: #000;
+      background: #111;
     }
 
     .viewport img {
@@ -69,7 +71,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: brightness(0.9) contrast(1.05);
+      filter: brightness(0.92) contrast(1.05);
       transition: transform 0.4s ease;
     }
 
@@ -82,15 +84,14 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      border: 12px solid transparent;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 8px;
+      padding: 10px;
       background: 
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 20px 20px;
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
 
     /* Corner Alignment Reticles */
@@ -108,7 +109,7 @@
 
     /* HUD Bar Headers */
     .hud-header {
-      background: rgba(14, 16, 18, 0.85);
+      background: rgba(13, 15, 17, 0.88);
       backdrop-filter: blur(4px);
       border: 1px solid var(--border);
       padding: 4px 8px;
@@ -119,7 +120,7 @@
     }
 
     .hud-footer {
-      background: rgba(14, 16, 18, 0.85);
+      background: rgba(13, 15, 17, 0.88);
       backdrop-filter: blur(4px);
       border: 1px solid var(--border);
       padding: 4px 8px;
@@ -130,10 +131,11 @@
     .card-info {
       padding: 16px;
       border-top: 1px solid var(--border);
+      flex-grow: 1;
     }
 
     .card-title {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: #fff;
       margin-bottom: 6px;
     }
@@ -153,6 +155,7 @@
       font-size: 1rem;
       margin-bottom: 20px;
       color: var(--accent-pink);
+      text-transform: uppercase;
     }
 
     .process-strip {
@@ -173,6 +176,7 @@
       object-fit: cover;
       display: block;
       margin-bottom: 8px;
+      background: #111;
     }
 
     .process-step-title {
@@ -183,94 +187,103 @@
 </head>
 <body>
 
+  <script>
+    // Fallback SVG UV-Checker pattern if an external image fails to load
+    const fallbackSVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%2315181c'/><rect width='100' height='100' fill='%232c8c87'/><rect x='100' y='100' width='100' height='100' fill='%232c8c87'/><rect x='100' width='100' height='100' fill='%23d6486e'/><rect y='100' width='100' height='100' fill='%23d6486e'/></svg>";
+    function handleImgError(img) {
+      img.onerror = null;
+      img.src = fallbackSVG;
+    }
+  </script>
+
   <header>
     <div>
-      <h1>ABDULKERIM SEID ENDRIS — TECHNICAL SPEC PORTFOLIO</h1>
-      <p style="color: var(--muted); font-size: 0.8rem;">DCC Asset Inspector & Production Pipeline Deliverables</p>
+      <h1>Abdulkerim Seid Endris — Technical Spec Portfolio</h1>
+      <p style="color: var(--muted); font-size: 0.8rem;">DCC Viewport & Production Asset Inspector</p>
     </div>
-    <div class="status">PIPELINE: ACTIVE_EVALUATION [3D / RETOUCH / NPR]</div>
+    <div class="status">STATUS: ALL_PASS [16-BIT RAW / P3]</div>
   </header>
 
   <main class="grid">
     <article class="card">
       <div class="viewport">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80" alt="Retouching Sample">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" alt="Photo Retouching" onerror="handleImgError(this)">
         <div class="hud-overlay">
           <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
           <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
           <div class="hud-header">
             <span>SPEC_01 :: PHOTO_RETOUCH</span>
-            <span style="color:var(--accent-pink);">16-BIT RAW PASS</span>
+            <span style="color:var(--accent-pink);">16-BIT PASS</span>
           </div>
           <div class="hud-footer">FREQ SEPARATION | SKIN GRAIN | DCI-P3</div>
         </div>
       </div>
       <div class="card-info">
         <h3 class="card-title">01 // High-End Photo Retouching & Composite</h3>
-        <p class="card-meta">Non-destructive frequency separation, raw color grading, zero artifacting.</p>
+        <p class="card-meta">Non-destructive frequency separation, skin detail preservation, and high-dynamic-range color grading.</p>
       </div>
     </article>
 
     <article class="card">
       <div class="viewport">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Stylized Character">
+        <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=900&q=80" alt="Character Style Variations" onerror="handleImgError(this)">
         <div class="hud-overlay">
           <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
           <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
           <div class="hud-header">
             <span>SPEC_02 :: CHARACTER_STYLE</span>
-            <span style="color:var(--accent-orange);">IDENTITY MATCH 99%</span>
+            <span style="color:var(--accent-orange);">IDENTITY 99.4%</span>
           </div>
-          <div class="hud-footer">VECTOR PATHS | GLITCH & RETRO THEMES</div>
+          <div class="hud-footer">STYLIZED VARIATIONS | VECTOR ALIGNMENT</div>
         </div>
       </div>
       <div class="card-info">
         <h3 class="card-title">02 // Reference Character Style Variations</h3>
-        <p class="card-meta">Strict facial consistency preservation across stylized digital mediums.</p>
+        <p class="card-meta">Preserving strict facial identity across multiple artistic themes (cyberpunk, retro, toon, watercolor).</p>
       </div>
     </article>
 
     <article class="card">
       <div class="viewport">
-        <img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&w=1200&q=80" alt="Clay Shader">
+        <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=900&q=80" alt="Material Shaders" onerror="handleImgError(this)">
         <div class="hud-overlay">
           <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
           <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
           <div class="hud-header">
             <span>SPEC_03 :: MATERIAL_SURFACE</span>
-            <span style="color:var(--accent-teal);">HANDCAFTED CLAY</span>
+            <span style="color:var(--accent-teal);">PROCEDURAL</span>
           </div>
-          <div class="hud-footer">PROCEDURAL SHADERS | NPR TOON OUTLINE</div>
+          <div class="hud-footer">CLAY / FABRIC / PAPER | NPR OUTLINE</div>
         </div>
       </div>
       <div class="card-info">
-        <h3 class="card-title">03 // Material Shaders (Clay / Fabric / Paper)</h3>
-        <p class="card-meta">Subsurface scattering, procedural displacement, and custom NPR toon shading.</p>
+        <h3 class="card-title">03 // Material Shaders & Surface Studies</h3>
+        <p class="card-meta">Procedural shader graph development in Blender, subsurface scattering, and custom NPR toon outlines.</p>
       </div>
     </article>
 
     <article class="card">
       <div class="viewport">
-        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80" alt="Traditional Mediums">
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80" alt="Traditional Fine Art" onerror="handleImgError(this)">
         <div class="hud-overlay">
           <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
           <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
           <div class="hud-header">
             <span>SPEC_04 :: FINE_ART_MEDIUM</span>
-            <span style="color:var(--accent-pink);">OIL & WATERCOLOR</span>
+            <span style="color:var(--accent-pink);">CANVAS EMULATION</span>
           </div>
-          <div class="hud-footer">CANVAS GRAIN | IMPASTO DISPLACEMENT</div>
+          <div class="hud-footer">OIL / WATERCOLOR / INK | TEXTURE GRAIN</div>
         </div>
       </div>
       <div class="card-info">
         <h3 class="card-title">04 // Traditional Fine Art Mediums Emulation</h3>
-        <p class="card-meta">Digital painting emulating physical canvas textures, pop art, and ink line art.</p>
+        <p class="card-meta">Simulating physical canvas textures, impasto paint depth, ink line art, and classical brush strokes.</p>
       </div>
     </article>
 
     <article class="card">
       <div class="viewport">
-        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=1200&q=80" alt="Low Poly Model">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80" alt="Low Poly Model" onerror="handleImgError(this)">
         <div class="hud-overlay">
           <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
           <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
@@ -283,26 +296,26 @@
       </div>
       <div class="card-info">
         <h3 class="card-title">05 // Low-Poly & Voxel Production Set</h3>
-        <p class="card-meta">Production-ready asset set built with clean edge loops and optimized UV maps.</p>
+        <p class="card-meta">Production-ready asset set built with clean edge loops, quad topology, and optimized 0-1 UV coordinate maps.</p>
       </div>
     </article>
 
     <article class="card">
       <div class="viewport">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Dataset Workflow">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" alt="Metadata Dashboard" onerror="handleImgError(this)">
         <div class="hud-overlay">
           <div class="reticle ret-tl"></div><div class="reticle ret-tr"></div>
           <div class="reticle ret-bl"></div><div class="reticle ret-br"></div>
           <div class="hud-header">
             <span>SPEC_06 :: METADATA_SCHEMA</span>
-            <span style="color:var(--accent-teal);">JSON / EXIF LOG</span>
+            <span style="color:var(--accent-teal);">JSON / EXIF</span>
           </div>
-          <div class="hud-footer">PROMPT LOGGING | AI MODEL EVALUATION</div>
+          <div class="hud-footer">PROMPT LOGGING | EVALUATION READY</div>
         </div>
       </div>
       <div class="card-info">
         <h3 class="card-title">06 // Stylized Asset & Prompt Documentation</h3>
-        <p class="card-meta">Structured prompt logs, category tags, and visual style evaluation sheets.</p>
+        <p class="card-meta">Structured prompt logs, category tags, and standardized visual evaluation sheets for AI quality benchmarks.</p>
       </div>
     </article>
   </main>
@@ -311,23 +324,23 @@
     <h2>PIPELINE_STAGES // END-TO-END BREAKDOWN</h2>
     <div class="process-strip">
       <div class="process-step">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Blockout">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Blockout Stage" onerror="handleImgError(this)">
         <div class="process-step-title">01 // Blockout</div>
       </div>
       <div class="process-step">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80" alt="Topology">
+        <img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&w=500&q=80" alt="Topology Stage" onerror="handleImgError(this)">
         <div class="process-step-title">02 // Topology</div>
       </div>
       <div class="process-step">
-        <img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?auto=format&fit=crop&w=500&q=80" alt="UV Layout">
+        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=500&q=80" alt="UV Layout Stage" onerror="handleImgError(this)">
         <div class="process-step-title">03 // UV Layout</div>
       </div>
       <div class="process-step">
-        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80" alt="Shading">
+        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=500&q=80" alt="Shading Stage" onerror="handleImgError(this)">
         <div class="process-step-title">04 // Shading</div>
       </div>
       <div class="process-step">
-        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=500&q=80" alt="Final Render">
+        <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=500&q=80" alt="Final Render Stage" onerror="handleImgError(this)">
         <div class="process-step-title">05 // Final Render</div>
       </div>
     </div>
