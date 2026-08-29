@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>[Your Name] — Stylized 3D Artist / Digital Imaging Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!--
+  HOW TO USE THIS FILE
+  1. Find every [bracketed placeholder] and replace it with your real info.
+  2. Each checkered box is an image slot (the checker pattern = "empty," same
+     convention as a transparency checkerboard). Once you have a render:
+       - delete the <span class="card-tag-pill">...</span> line inside it
+       - remove the "checker" class from the div
+       - add inside it: <img src="your-file.jpg" alt="Project name">
+     The CSS already handles sizing (object-fit: cover), so it'll just fit the frame.
+  3. Need more than 6 pieces? Duplicate a whole <div class="card">...</div>
+     block inside the #work section.
+  4. Preview: double-click this file — it opens straight in your browser, no
+     server or install needed.
+  5. Publish: put this file and your images in one folder, then drag that
+     folder into https://app.netlify.com/drop for an instant live link.
+-->
+
+<style>
+  :root{
+    --paper:#E7E7E0;
+    --paper-2:#DBDAD1;
+    --ink:#1D2023;
+    --ink-soft:#5B5E58;
+    --check-a:#D6486E;
+    --check-b:#2C8C87;
+    --line:#B7B5AA;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'IBM Plex Sans',sans-serif;font-weight:700;letter-spacing:-0.01em;line-height:1.08;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2px solid var(--check-a);outline-offset:3px;}
+
+  .checker{
+    background-color:var(--check-b);
+    background-image:
+      linear-gradient(45deg, var(--check-a) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--check-a) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--check-a) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--check-a) 75%);
+    background-size:28px 28px;
+    background-position:0 0, 0 14px, 14px -14px, -14px 0px;
+  }
+
+  header.titlebar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(231,231,224,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .titlebar-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  }
+  .titlebar-name{font-family:'IBM Plex Mono';font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;}
+  .titlebar-links{display:flex;gap:26px;font-family:'IBM Plex Mono';font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
+  .titlebar-links a:hover{color:var(--check-a);}
+
+  .hero{max-width:var(--maxw);margin:0 auto;padding:64px 28px 0;}
+  .hero-grid{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;}
+  .hero-meta{font-family:'IBM Plex Mono';font-size:0.78rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:12px;padding-top:14px;border-top:1px solid var(--line);}
+  .hero-meta .k{color:var(--ink);font-weight:600;display:block;margin-bottom:2px;}
+  .hero-main h1{font-size:clamp(2.1rem,5.2vw,3.8rem);margin-bottom:18px;}
+  .hero-main p{color:var(--ink-soft);max-width:520px;font-size:1.05rem;}
+  .hero-swatch{height:56px;margin-top:52px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+
+  section{padding:88px 28px;max-width:var(--maxw);margin:0 auto;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:18px;}
+  .section-head h2{font-size:clamp(1.5rem,2.4vw,2rem);}
+  .section-tag{font-family:'IBM Plex Mono';font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;}
+
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;}
+  .about-text p{color:var(--ink-soft);font-size:1.05rem;max-width:480px;}
+  .spec-block{margin-bottom:26px;}
+  .spec-block h3{font-family:'IBM Plex Mono';font-size:0.74rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-bottom:12px;font-weight:600;}
+  .chip-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+  .chip-list li{border:1px solid var(--line);padding:6px 12px;font-family:'IBM Plex Mono';font-size:0.76rem;background:var(--paper-2);}
+
+  .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;}
+  .card{border:1px solid var(--line);background:var(--paper-2);transition:transform .25s ease, border-color .25s ease;}
+  .card:hover{transform:translateY(-3px);border-color:var(--ink);}
+  .card-image{aspect-ratio:4/3;position:relative;overflow:hidden;}
+  .card-image img{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-tag-pill{
+    position:absolute;bottom:10px;left:10px;
+    background:var(--ink);color:var(--paper);
+    font-family:'IBM Plex Mono';font-size:0.66rem;letter-spacing:0.04em;
+    padding:5px 9px;
+  }
+  .card-body{padding:18px 20px 22px;border-top:1px solid var(--line);}
+  .card-body .cat{font-family:'IBM Plex Mono';font-size:0.67rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--check-a);display:block;margin-bottom:9px;font-weight:600;}
+  .card-body h3{font-size:1.02rem;margin-bottom:8px;font-weight:600;}
+  .card-body p{color:var(--ink-soft);font-size:0.85rem;font-family:'IBM Plex Mono';line-height:1.55;}
+
+  .process-strip{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);}
+  .stage{padding:20px 16px;border-right:1px solid var(--line);}
+  .stage:last-child{border-right:none;}
+  .stage-frame{aspect-ratio:1;margin-bottom:14px;}
+  .stage-num{font-family:'IBM Plex Mono';color:var(--check-a);font-size:0.82rem;display:block;margin-bottom:8px;font-weight:600;}
+  .stage h4{font-size:0.83rem;margin-bottom:5px;font-weight:600;}
+  .stage p{font-size:0.72rem;color:var(--ink-soft);}
+
+  footer{border-top:1px solid var(--line);padding:76px 28px 46px;max-width:var(--maxw);margin:0 auto;}
+  .footer-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
+  footer h2{font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:10px;}
+  .contact-links{font-family:'IBM Plex Mono';font-size:0.84rem;color:var(--ink-soft);}
+  .footer-note{font-family:'IBM Plex Mono';font-size:0.7rem;color:var(--ink-soft);opacity:0.7;margin-top:46px;}
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;gap:18px;}
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .process-strip{grid-template-columns:1fr 1fr;}
+    .stage{border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="titlebar">
+  <div class="titlebar-inner">
+    <span class="titlebar-name">[Your Name]</span>
+    <nav class="titlebar-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-meta">
+      <div><span class="k">Name</span>[Your Name]</div>
+      <div><span class="k">Role</span>Stylized 3D Artist / Digital Imaging Specialist</div>
+      <div><span class="k">Focus</span>Low-poly · Voxel · Material-driven</div>
+      <div><span class="k">Status</span>[Open to work — Month Year]</div>
+    </div>
+    <div class="hero-main">
+      <h1>Stylized 3D, built for production.</h1>
+      <p>Low-poly, voxel, and material-driven work — clay, fabric, paper — taken from blockout through final render.</p>
+    </div>
+  </div>
+  <div class="hero-swatch checker"></div>
+</section>
+
+<section id="about">
+  <div class="section-head">
+    <h2>About</h2>
+    <span class="section-tag">01 — Background</span>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>[Two or three sentences: your background, what draws you to stylized / NPR work, and the kind of production pipeline you want to work inside. Write this in your own voice — it's the first thing a reviewer reads after your work.]</p>
+    </div>
+    <div class="about-specs">
+      <div class="spec-block">
+        <h3>Core Skills</h3>
+        <ul class="chip-list">
+          <li>Topology & Retopo</li>
+          <li>UV Mapping</li>
+          <li>Lighting & Shading</li>
+          <li>Material Creation</li>
+          <li>NPR Rendering</li>
+          <li>Asset Optimization</li>
+        </ul>
+      </div>
+      <div class="spec-block">
+        <h3>Tools</h3>
+        <ul class="chip-list">
+          <li>Blender</li>
+          <li>[ZBrush]</li>
+          <li>[Substance Painter]</li>
+          <li>[Adobe CC]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-head">
+    <h2>Selected Work</h2>
+    <span class="section-tag">02 — Six Pieces</span>
+  </div>
+  <div class="work-grid">
+
+    <div class="card reveal">
+      <div class="card-image checker">
+        <span class="card-tag-pill">1600×1200 — drop render</span>
+      </div>
+      <div class="card-body">
+        <span class="cat">Full-Pipeline Breakdown</span>
+        <h3>[Project Title]</h3>
+        <p>[One line: concept, poly count, render engine]</p>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-image checker">
+        <span class="card-tag-pill">1600×1200 — drop render</span>
+      </div>
+      <div class="card-body">
+        <span class="cat">Material Study — Clay / Fabric / Paper</span>
+        <h3>[Project Title]</h3>
+        <p>[One line: which materials, what sold the read]</p>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-image checker">
+        <span class="card-tag-pill">1600×1200 — drop render</span>
+      </div>
+      <div class="card-body">
+        <span class="cat">Low-Poly</span>
+        <h3>[Project Title]</h3>
+        <p>[One line: concept + poly budget]</p>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-image checker">
+        <span class="card-tag-pill">1600×1200 — drop render</span>
+      </div>
+      <div class="card-body">
+        <span class="cat">Voxel</span>
+        <h3>[Project Title]</h3>
+        <p>[One line: concept + voxel resolution]</p>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-image checker">
+        <span class="card-tag-pill">1600×1200 — drop render</span>
+      </div>
+      <div class="card-body">
+        <span class="cat">Variation Set</span>
+        <h3>[Project Title]</h3>
+        <p>[One line: base asset + number of variants]</p>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-image checker">
+        <span class="card-tag-pill">1600×1200 — drop render</span>
+      </div>
+      <div class="card-body">
+        <span class="cat">NPR / Stylized Scene</span>
+        <h3>[Project Title]</h3>
+        <p>[One line: scene concept + shading style]</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-head">
+    <h2>Process Breakdown</h2>
+    <span class="section-tag">03 — One Piece, Start To Finish</span>
+  </div>
+  <div class="process-strip reveal">
+    <div class="stage">
+      <div class="stage-frame checker"></div>
+      <span class="stage-num">01</span>
+      <h4>Blockout</h4>
+      <p>Rough shapes & proportions</p>
+    </div>
+    <div class="stage">
+      <div class="stage-frame checker"></div>
+      <span class="stage-num">02</span>
+      <h4>Topology</h4>
+      <p>Clean edge flow, wireframe</p>
+    </div>
+    <div class="stage">
+      <div class="stage-frame checker"></div>
+      <span class="stage-num">03</span>
+      <h4>UV Layout</h4>
+      <p>Unwrap + checker map</p>
+    </div>
+    <div class="stage">
+      <div class="stage-frame checker"></div>
+      <span class="stage-num">04</span>
+      <h4>Shading & Lighting</h4>
+      <p>Materials + light rig</p>
+    </div>
+    <div class="stage">
+      <div class="stage-frame checker"></div>
+      <span class="stage-num">05</span>
+      <h4>Final Render</h4>
+      <p>Hero angle or turntable</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <h2>Let's talk.</h2>
+      <p class="contact-links">[your@email.com] · [ArtStation / Behance] · [LinkedIn]</p>
+    </div>
+    <span class="section-tag">04 — Contact</span>
+  </div>
+  <p class="footer-note">© <span id="year"></span> [Your Name]. Built for the Turing Digital Imaging Specialist application.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
